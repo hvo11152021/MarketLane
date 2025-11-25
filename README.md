@@ -4,10 +4,9 @@ MarketLane is a lightweight local business marketplace designed for small towns 
 
 ## Description
 
-MarketLane helps communities connect with nearby shops and services.  
-Users can quickly search businesses, explore store pages, and discover local promotions.  
+MarketLane helps locals in Fairfield to connect with its community.  
+Users can quickly search items, explore store pages, and discover local promotions.  
 The app provides essential marketplace features without complex integrations.  
-Ideal for towns, schools, local chambers of commerce, and community projects.
 
 ## Members
 
@@ -28,6 +27,3 @@ Ideal for towns, schools, local chambers of commerce, and community projects.
 - **Database:** mySQL
 - **Deploy:** AWS
 - **Auth:** Basic JWT (for admin upload)
-
-## Project Structure
-
