@@ -4,8 +4,8 @@ MarketLane is a lightweight local business marketplace designed for small towns 
 
 | Topic  | Description |
 | ------------- | ------------- |
-| Business Requirements  | [PDF](https://github.com/hvo11152021/MarketLane/blob/main/MarketLane%20%E2%80%93%20Business%20Requirements.pdf)  |
-| Use Cases  | [PDF](https://github.com/hvo11152021/MarketLane/blob/main/MarketLane%20-%20Use%20Cases.pdf)  |
+| Business Requirements  | [PDF](https://github.com/hvo11152021/MarketLane/blob/main/Requirement%Statements.docx)  |
+| Use Cases  | [PDF](https://github.com/hvo11152021/MarketLane/blob/main/Use%20Cases.pdf)  |
 | User Story Map  | [Mural](https://app.mural.co/t/hyse2678/m/hyse2678/1764135326174/341088ef23efa6e70a6af57cb3d48cf37ba19499)  |
 
 ## Description
