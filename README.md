@@ -1,12 +1,21 @@
 # MarketLane
 
-MarketLane is a lightweight local business marketplace designed for small towns and community-focused regions. The platform lets users browse local businesses, search by category, view store details, and save favorites. Business owners can upload and manage basic listings through a simple admin interface. MarketLane focuses on speed, clarity, and easy deployment for small-scale environments.
+MarketLane is a lightweight local e-commerce application designed for small towns and community-focused regions. The platform lets users browse local businesses, search by category, view store details, and save favorites. Business owners can upload and manage basic listings through a simple admin interface. MarketLane focuses on speed, clarity, and easy deployment for small-scale environments.
 
 | Topic  | Description |
 | ------------- | ------------- |
-| Requirement Statements  | [PDF](https://github.com/hvo11152021/MarketLane/blob/main/RequirementStatements.pdf)  |
-| Use Cases  | [PDF](https://github.com/hvo11152021/MarketLane/blob/main/UseCases.pdf)  |
-| User Story Map  | [Mural](https://app.mural.co/t/hyse2678/m/hyse2678/1764135326174/341088ef23efa6e70a6af57cb3d48cf37ba19499)  |
+| Requirement Statements | [Markdown](https://github.com/hvo11152021/MarketLane/blob/main/documents/RequirementStatements.md)  |
+| Use Cases | [PDF](https://github.com/hvo11152021/MarketLane/blob/main/documents/UseCases.pdf)  |
+| User Story Map | [Markdown](https://github.com/hvo11152021/MarketLane/blob/main/documents/UserStories.md) |
+| Class Diagram | [PNG](https://github.com/hvo11152021/MarketLane/blob/main/documents/ClassDiagram.png) |
+| Sequence Diagram | [PNG](https://github.com/hvo11152021/MarketLane/blob/main/documents/SequenceDiagram.png) |
+
+| Architecture | Description |
+| ------------- | ------------- |
+| System Context | [PDF](https://github.com/hvo11152021/MarketLane/blob/main/documents/SystemContext.pdf) |
+| Container Diagram | [PDF](https://github.com/hvo11152021/MarketLane/blob/main/documents/ContainerDiagram.pdf) |
+| Component Diagram | [PDF](https://github.com/hvo11152021/MarketLane/blob/main/documents/ComponentDiagram.pdf) |
+
 
 ## Description
 
