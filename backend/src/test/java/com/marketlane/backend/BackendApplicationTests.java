@@ -1,10 +1,10 @@
-package com.marketlane.MarketLaneEcom;
+package com.marketlane.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MarketLaneEcomApplicationTests {
+class BackendApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,14 +1,14 @@
-package com.marketlane.MarketLaneEcom;
+package com.marketlane.backend;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MarketLaneEcomApplication implements CommandLineRunner {
+public class BackendApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MarketLaneEcomApplication.class, args);
+		SpringApplication.run(BackendApplication.class, args);
 	}
 
     @Override
