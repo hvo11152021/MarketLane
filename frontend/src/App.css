@@ -1,42 +1,141 @@
+/* =========================================================
+   THEME TOKENS (clean + consistent)
+   Apply `.light-theme` or `.dark-theme` to a top wrapper
+   (commonly <body> or a top-level div).
+========================================================= */
+
+.light-theme {
+  --root_background: #ffffff;
+  --body_background: #ffffff;
+
+  --navbar_background: #ffffff;
+  --navbar_text: #0f172a;
+
+  --text: #0f172a;
+  --muted: #64748b;
+
+  --link_color: #0f172a;
+  --link_hover_color: #334155;
+
+  --surface: #ffffff;
+  --surface_2: #f8fafc;
+  --border: rgba(15, 23, 42, 0.10);
+
+  --card-bg: #ffffff;
+  --search_result-bg: #f1f5f9;
+
+  --btn-bg: #0d6efd;
+  --btn-clr: #ffffff;
+
+  --category-hvr: rgba(15, 23, 42, 0.06);
+  --hr_line: rgba(15, 23, 42, 0.15);
+
+  --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+}
+
+.dark-theme {
+  --root_background: #0b1220;
+  --body_background: #0b1220;
+
+  --navbar_background: rgba(2, 6, 23, 0.75);
+  --navbar_text: #e5e7eb;
+
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+
+  --link_color: #e5e7eb;
+  --link_hover_color: #ffffff;
+
+  --surface: #0f172a;
+  --surface_2: #111c33;
+  --border: rgba(255, 255, 255, 0.10);
+
+  --card-bg: #0f172a;
+  --search_result-bg: #111c33;
+
+  --btn-bg: #3b82f6;
+  --btn-clr: #ffffff;
+
+  --category-hvr: rgba(255, 255, 255, 0.08);
+  --hr_line: rgba(255, 255, 255, 0.18);
+
+  --shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================================================
+   BASE
+========================================================= */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--body_background);
+  color: var(--text);
+}
+
 #root {
-  max-width: 1280px;
+  max-width: 100%;
+  min-height: 100%;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  background-color: var(--root_background);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+h1, h2, h3, h4, h5, h6, p, span {
+  color: var(--text);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a {
+  color: var(--link_color);
+}
+a:hover {
+  color: var(--link_hover_color);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Utility: because navbar is fixed */
+.page {
+  padding-top: 86px;
 }
 
-.card {
-  padding: 2em;
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--navbar_background);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(10px);
 }
 
-.read-the-docs {
-  color: #888;
+.navbar-brand {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+}
+
+.theme-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 10px;
+  cursor: pointer;
+  color: var(--navbar_text);
+}
+
+.navbar a,
+.navbar span,
+.navbar li,
+.navbar i,
+.navbar button {
+  color: var(--navbar_text) !important;
+}
+
+.navbar a:hover {
+  color: var(--link_hover_color) !important;
 }
