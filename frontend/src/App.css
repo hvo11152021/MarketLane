@@ -139,3 +139,203 @@ a:hover {
 .navbar a:hover {
   color: var(--link_hover_color) !important;
 }
+
+/* =========================================================
+   SEARCH DROPDOWN (list-group)
+========================================================= */
+
+.list-group {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  z-index: 2000;
+}
+
+.list-group-item {
+  padding: 10px 12px;
+  cursor: pointer;
+  background-color: var(--search_result-bg) !important;
+  border: 0;
+  color: var(--text) !important;
+}
+
+.list-group-item:hover {
+  background-color: var(--category-hvr) !important;
+}
+
+.no-results-message {
+  margin-top: 0.5rem;
+  color: #dc3545;
+  display: flex;
+  justify-content: center;
+}
+
+.search-result-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.search-result-link:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   DROPDOWN MENU (bootstrap)
+========================================================= */
+
+.dropdown-menu {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 12px !important;
+  box-shadow: var(--shadow);
+}
+
+.dropdown-item {
+  color: var(--text) !important;
+}
+
+.dropdown-item:hover {
+  background-color: var(--category-hvr) !important;
+}
+
+/* =========================================================
+   HOME PRODUCT GRID (new, safe classes — no bootstrap overrides)
+========================================================= */
+
+.product-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.product-card {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+}
+
+.product-media {
+  aspect-ratio: 4 / 3;
+  background: var(--surface_2);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.product-chips {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  color: #0f172a;
+}
+
+.dark-theme .chip {
+  background: rgba(15, 23, 42, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e5e7eb;
+}
+
+.chip-warn {
+  font-weight: 700;
+}
+
+.product-title {
+  font-weight: 800;
+  font-size: 0.98rem;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.product-brand {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+.price {
+  font-weight: 900;
+  font-size: 1.02rem;
+  letter-spacing: -0.2px;
+  color: var(--text);
+}
+
+.btn-pill {
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-weight: 800;
+}
+
+/* Bootstrap primary button polish */
+.btn-primary {
+  background: var(--btn-bg) !important;
+  border-color: var(--btn-bg) !important;
+  color: var(--btn-clr) !important;
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+}
+
+/* Out of stock overlay */
+.oos {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: 0.4px;
+}
+
+/* =========================================================
+   CART / PRODUCT PAGES
+   Keep your existing styles, but avoid global .container/.card edits.
+   If you had old layout hacks (padding-top:500px), remove them.
+========================================================= */
+
+/* HR line */
+.hr-line {
+  width: 100%;
+  height: 1px;
+  background: var(--hr_line);
+}
+
+.update-shell { max-width: 980px; }

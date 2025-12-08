@@ -10,19 +10,26 @@ const Login = () => {
 
   const submit = async (e) => {
     e.preventDefault();
+
     try {
-      const res = await API.post('/auth/login', { username, password });
-      const token = res.data.token;
-      localStorage.setItem('token', token);
-      if (res.data.username) localStorage.setItem('username', res.data.username);
-      if (res.data.role) localStorage.setItem('role', res.data.role);
-      // notify other components (same-tab) about auth change
-      window.dispatchEvent(new Event('authChanged'));
-      navigate('/');
-    } catch (err) {
-      setError(err.response?.data || 'Login failed');
+      const response = await API.post("/auth/login", {
+        username,
+        password,
+      });
+
+      const { token, username: name, role } = response.data;
+
+      localStorage.setItem("token", token);
+      if (name) localStorage.setItem("username", name);
+      if (role) localStorage.setItem("role", role);
+
+      window.dispatchEvent(new Event("authChanged"));
+      navigate("/");
+    } catch (error) {
+      setError(error.response?.data ?? "Login failed");
     }
   };
+
 
   return (
     <div className="container" style={{ marginTop: 80, maxWidth: 480 }}>
