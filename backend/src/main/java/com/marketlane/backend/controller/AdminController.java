@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,24 +46,16 @@ public class AdminController {
         String username = body.get("username");
         String password = body.get("password");
         String role = body.getOrDefault("role", "ROLE_USER");
-
-        if (username == null || password == null)
-            return new ResponseEntity<>("Missing fields", HttpStatus.BAD_REQUEST);
-
-        if (userRepo.findByUsername(username).isPresent())
-            return new ResponseEntity<>("User exists", HttpStatus.CONFLICT);
-
+        if (username == null || password == null) return new ResponseEntity<>("Missing fields", HttpStatus.BAD_REQUEST);
+        if (userRepo.findByUsername(username).isPresent()) return new ResponseEntity<>("User exists", HttpStatus.CONFLICT);
         User u = new User(username, passwordEncoder.encode(password), role);
-
         userRepo.save(u);
-        return new ResponseEntity<>(
-                Map.of("id", u.getId(), "username", u.getUsername(), "role", u.getRole()), HttpStatus.CREATED);
+        return new ResponseEntity<>(Map.of("id", u.getId(), "username", u.getUsername(), "role", u.getRole()), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/users/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable Integer id) {
-        if (!userRepo.existsById(id))
-            return new ResponseEntity<>("Not found", HttpStatus.NOT_FOUND);
+        if (!userRepo.existsById(id)) return new ResponseEntity<>("Not found", HttpStatus.NOT_FOUND);
         userRepo.deleteById(id);
         return ResponseEntity.ok(Map.of("deleted", id));
     }
@@ -77,8 +68,7 @@ public class AdminController {
     @DeleteMapping("/products/{id}")
     public ResponseEntity<?> deleteProduct(@PathVariable Integer id) {
         Product p = productService.getProductById(id);
-        if (p == null)
-            return new ResponseEntity<>("Not found", HttpStatus.NOT_FOUND);
+        if (p == null) return new ResponseEntity<>("Not found", HttpStatus.NOT_FOUND);
         productService.deleteProduct(id);
         return ResponseEntity.ok(Map.of("deleted", id));
     }
@@ -89,12 +79,12 @@ public class AdminController {
         int productCount = products.size();
         int totalStock = products.stream().mapToInt(p -> p.getStockQuantity()).sum();
 
-        BigDecimal avgPrice = BigDecimal.ZERO;
+        java.math.BigDecimal avgPrice = java.math.BigDecimal.ZERO;
         if (!products.isEmpty()) {
-            BigDecimal sum = products.stream()
+            java.math.BigDecimal sum = products.stream()
                 .map(Product::getPrice)
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
-            avgPrice = sum.divide(BigDecimal.valueOf(productCount), 2, java.math.RoundingMode.HALF_UP);
+                .reduce(java.math.BigDecimal.ZERO, java.math.BigDecimal::add);
+            avgPrice = sum.divide(java.math.BigDecimal.valueOf(productCount), 2, java.math.RoundingMode.HALF_UP);
         }
 
         Map<String, Object> out = new HashMap<>();

@@ -1,8 +1,8 @@
 package com.marketlane.backend.controller;
 
-import com.cart.ecom_proj.model.User;
-import com.cart.ecom_proj.repo.UserRepo;
-import com.cart.ecom_proj.security.JwtUtil;
+import com.marketlane.backend.model.User;
+import com.marketlane.backend.repo.UserRepo;
+import com.marketlane.backend.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

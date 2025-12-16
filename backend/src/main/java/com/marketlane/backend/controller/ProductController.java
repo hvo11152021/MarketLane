@@ -1,7 +1,7 @@
 package com.marketlane.backend.controller;
 
-import com.cart.ecom_proj.model.Product;
-import com.cart.ecom_proj.service.ProductService;
+import com.marketlane.backend.model.Product;
+import com.marketlane.backend.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

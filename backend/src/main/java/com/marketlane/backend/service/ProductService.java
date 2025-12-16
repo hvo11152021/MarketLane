@@ -52,7 +52,7 @@ public class ProductService {
         existing.setPrice(incoming.getPrice());
         existing.setCategory(incoming.getCategory());
         existing.setReleaseDate(incoming.getReleaseDate());
-        existing.setProductAvailable(incoming.isProductAvailable());
+        existing.setProductAvailable(incoming.getProductAvailable());
         existing.setStockQuantity(incoming.getStockQuantity());
 
         // set availability based on resulting stock
