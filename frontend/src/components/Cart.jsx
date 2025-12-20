@@ -14,6 +14,12 @@ const Cart = () => {
   const [cartImage, setCartImage] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
+  useEffect(() => {
+    const role = localStorage.getItem("role");
+    if (role !== "ROLE_USER" && role !=="ROLE_ADMIN") 
+      navigate("/");
+  }, [navigate]);
+
   // fetch product images and update cart items
   useEffect(() => {
     const fetchImagesAndUpdateCart = async () => {

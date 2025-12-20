@@ -7,15 +7,15 @@ import java.util.Date;
 
 @Data
 public class ProductResponseDto {
-    private Integer id;
+    private int id;
     private String name;
     private String description;
     private String brand;
     private BigDecimal price;
     private String category;
     private Date releaseDate;
-    private Boolean productAvailable;
-    private Integer stockQuantity;
+    private boolean productAvailable;
+    private int stockQuantity;
     private String imageName;
     private String imageType;
     private byte[] imageData;

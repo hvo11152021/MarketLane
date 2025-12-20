@@ -15,6 +15,12 @@ const Product = () => {
   const [showAddedModal, setShowAddedModal] = useState(false);
   const [addedProduct, setAddedProduct] = useState(null);
 
+  useEffect(() => {
+    const role = localStorage.getItem("role");
+    if (role !=="ROLE_ADMIN") 
+      navigate("/");
+  }, [navigate]);
+
   // fetch product data and image on mount
   useEffect(() => {
     const fetchProduct = async () => {

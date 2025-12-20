@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import API from "../axios";
 import unplugged from "../assets/unplugged.png";
 
@@ -28,7 +28,19 @@ const UpdateProduct = () => {
     stockQuantity: "",
   });
 
-  const previewUrl = useMemo(() => (imageFile ? URL.createObjectURL(imageFile) : null), [imageFile]);
+  useEffect(() => {
+    const role = localStorage.getItem("role");
+    if (role !== "ROLE_USER") 
+      navigate("/");
+    else if (role !== "ROLE_USER") 
+      navigate("/");
+  }, [navigate]);
+
+  // create preview URL for picked file
+  const previewUrl = useMemo(() => {
+    if (!imageFile) return null;
+    return URL.createObjectURL(imageFile);
+  }, [imageFile]);
 
   useEffect(() => {
     return () => {
@@ -37,10 +49,11 @@ const UpdateProduct = () => {
     };
   }, [previewUrl, imageFallbackUrl]);
 
-  const blobToFile = (blobData, fileName) => new File([blobData], fileName, { type: blobData.type || "image/jpeg" });
+  const blobToFile = (blobData, fileName) =>
+    new File([blobData], fileName, { type: blobData.type || "image/jpeg" });
 
   useEffect(() => {
-    const loadProduct = async () => {
+    const load = async () => {
       setLoading(true);
       setError("");
 
@@ -60,29 +73,45 @@ const UpdateProduct = () => {
           stockQuantity: p.stockQuantity ?? "",
         });
 
+        // Try load image for preview
         try {
           const imgRes = await API.get(`/product/${id}/image`, { responseType: "blob" });
           const fileName = p.imageName || `product-${id}.jpg`;
           const file = blobToFile(imgRes.data, fileName);
           setImageFile(file);
-          setImageFallbackUrl(URL.createObjectURL(imgRes.data));
+
+          // Also store a preview URL that works even if file isn't picked again
+          const url = URL.createObjectURL(imgRes.data);
+          setImageFallbackUrl(url);
         } catch {
           setImageFile(null);
           setImageFallbackUrl(null);
         }
-      } catch {
+      } catch (err) {
+        console.error(err);
         setError("Failed to load product.");
       } finally {
         setLoading(false);
       }
     };
 
-    loadProduct();
+    load();
   }, [id]);
 
-  const onChange = (e) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  const onToggle = (e) => setForm((prev) => ({ ...prev, productAvailable: e.target.checked }));
-  const onImage = (e) => e.target.files?.[0] && setImageFile(e.target.files[0]);
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const onToggle = (e) => {
+    const { checked } = e.target;
+    setForm((prev) => ({ ...prev, productAvailable: checked }));
+  };
+
+  const onImage = (e) => {
+    const f = e.target.files?.[0];
+    if (f) setImageFile(f);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -91,13 +120,19 @@ const UpdateProduct = () => {
 
     try {
       const fd = new FormData();
+
+      // send image if user has one (or previously fetched)
       if (imageFile) fd.append("imageFile", imageFile);
+
       fd.append("product", new Blob([JSON.stringify(form)], { type: "application/json" }));
 
-      await API.put(`/product/${id}`, fd, { headers: { "Content-Type": "multipart/form-data" } });
+      await API.put(`/product/${id}`, fd, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
 
       navigate(`/product/${id}`);
-    } catch {
+    } catch (err) {
+      console.error(err);
       setError("Failed to update product. Please try again.");
     } finally {
       setSaving(false);
