@@ -37,8 +37,6 @@
 **I want to** see sales summaries  
 **So that** I can understand business performance.
 
----
-
 ## Buyer User Stories
 
 ### US-B1: Browse Products
@@ -75,8 +73,6 @@
 **As a** Buyer  
 **I want to** leave product reviews  
 **So that** other buyers can benefit from my experience.
-
----
 
 ## Admin User Stories
 
