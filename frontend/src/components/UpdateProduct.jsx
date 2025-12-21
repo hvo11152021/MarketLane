@@ -28,14 +28,6 @@ const UpdateProduct = () => {
     stockQuantity: "",
   });
 
-  useEffect(() => {
-    const role = localStorage.getItem("role");
-    if (role !== "ROLE_USER") 
-      navigate("/");
-    else if (role !== "ROLE_USER") 
-      navigate("/");
-  }, [navigate]);
-
   // create preview URL for picked file
   const previewUrl = useMemo(() => {
     if (!imageFile) return null;

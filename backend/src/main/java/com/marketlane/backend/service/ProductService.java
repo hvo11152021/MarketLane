@@ -1,15 +1,16 @@
 package com.marketlane.backend.service;
 
-import com.marketlane.backend.dto.ProductResponseDto;
-import com.marketlane.backend.mapper.ProductMapper;
-import com.marketlane.backend.model.Product;
-import com.marketlane.backend.repo.ProductRepo;
+import java.io.IOException;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-import java.util.List;
+import com.marketlane.backend.dto.ProductResponseDto;
+import com.marketlane.backend.mapper.ProductMapper;
+import com.marketlane.backend.model.Product;
+import com.marketlane.backend.repo.ProductRepo;
 
 @Service
 public class ProductService {
@@ -52,7 +53,7 @@ public class ProductService {
         existing.setPrice(incoming.getPrice());
         existing.setCategory(incoming.getCategory());
         existing.setReleaseDate(incoming.getReleaseDate());
-        existing.setProductAvailable(incoming.getProductAvailable());
+        existing.setProductAvailable(incoming.isProductAvailable());
         existing.setStockQuantity(incoming.getStockQuantity());
 
         // set availability based on resulting stock

@@ -1,18 +1,26 @@
 package com.marketlane.backend.controller;
 
-import com.marketlane.backend.model.Product;
-import com.marketlane.backend.model.User;
-import com.marketlane.backend.repo.UserRepo;
-import com.marketlane.backend.service.ProductService;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.marketlane.backend.model.Product;
+import com.marketlane.backend.model.User;
+import com.marketlane.backend.repo.UserRepo;
+import com.marketlane.backend.service.ProductService;
 
 @RestController
 @RequestMapping("/api/admin")
@@ -46,8 +54,10 @@ public class AdminController {
         String username = body.get("username");
         String password = body.get("password");
         String role = body.getOrDefault("role", "ROLE_USER");
-        if (username == null || password == null) return new ResponseEntity<>("Missing fields", HttpStatus.BAD_REQUEST);
-        if (userRepo.findByUsername(username).isPresent()) return new ResponseEntity<>("User exists", HttpStatus.CONFLICT);
+        if (username == null || password == null) 
+            return new ResponseEntity<>("Missing fields", HttpStatus.BAD_REQUEST);
+        if (userRepo.findByUsername(username).isPresent()) 
+            return new ResponseEntity<>("User exists", HttpStatus.CONFLICT);
         User u = new User(username, passwordEncoder.encode(password), role);
         userRepo.save(u);
         return new ResponseEntity<>(Map.of("id", u.getId(), "username", u.getUsername(), "role", u.getRole()), HttpStatus.CREATED);
@@ -68,7 +78,8 @@ public class AdminController {
     @DeleteMapping("/products/{id}")
     public ResponseEntity<?> deleteProduct(@PathVariable Integer id) {
         Product p = productService.getProductById(id);
-        if (p == null) return new ResponseEntity<>("Not found", HttpStatus.NOT_FOUND);
+        if (p == null) 
+            return new ResponseEntity<>("Not found", HttpStatus.NOT_FOUND);
         productService.deleteProduct(id);
         return ResponseEntity.ok(Map.of("deleted", id));
     }

@@ -1,6 +1,8 @@
 package com.marketlane.backend.security;
 
-import com.marketlane.backend.service.CustomUserDetailsService;
+import java.util.Collections;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,8 +20,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import java.util.Collections;
-import java.util.List;
+import com.marketlane.backend.service.CustomUserDetailsService;
 
 @Configuration
 public class SecurityConfig {
@@ -35,6 +36,7 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
+    //control login
     @Bean
     public AuthenticationManager authenticationManager() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider(userDetailsService);

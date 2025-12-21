@@ -15,7 +15,7 @@ public class ProductMapper {
         product.setPrice(productRequestDto.getPrice());
         product.setCategory(productRequestDto.getCategory());
         product.setReleaseDate(productRequestDto.getReleaseDate());
-        product.setProductAvailable(productRequestDto.getProductAvailable());
+        product.setProductAvailable(productRequestDto.isProductAvailable());
         product.setStockQuantity(productRequestDto.getStockQuantity());
         product.setImageName(productRequestDto.getImageName());
         product.setImageType(productRequestDto.getImageType());
@@ -31,7 +31,7 @@ public class ProductMapper {
         productResponseDto.setPrice(product.getPrice());
         productResponseDto.setCategory(product.getCategory());
         productResponseDto.setReleaseDate(product.getReleaseDate());
-        productResponseDto.setProductAvailable(product.getProductAvailable());
+        productResponseDto.setProductAvailable(product.isProductAvailable());
         productResponseDto.setStockQuantity(product.getStockQuantity());
         productResponseDto.setImageName(product.getImageName());
         productResponseDto.setImageType(product.getImageType());
