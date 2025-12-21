@@ -1,4 +1,4 @@
-Requirement Statements
+# Requirement Statements
 
 ## 1. Introduction
 A simple marketplace e-commerce platform supporting two main actors: **Buyer** and **Seller**.
