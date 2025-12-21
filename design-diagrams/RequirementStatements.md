@@ -1,9 +1,7 @@
-# E-Commerce Store Requirements
+Requirement Statements
 
 ## 1. Introduction
 A simple marketplace e-commerce platform supporting two main actors: **Buyer** and **Seller**.
-
----
 
 ## 2. Functional Requirements
 
@@ -33,8 +31,6 @@ A simple marketplace e-commerce platform supporting two main actors: **Buyer** a
 - **FR-19**: The system shall store all product and order data in a persistent database.  
 - **FR-20**: The system shall send notifications for order confirmations and order updates.
 
----
-
 ## 3. Non-Functional Requirements
 
 ### 3.1 Performance
@@ -61,13 +57,9 @@ A simple marketplace e-commerce platform supporting two main actors: **Buyer** a
 - **NFR-11**: The system’s backend and frontend code shall follow modular architecture.  
 - **NFR-12**: All services shall include logging for debugging and monitoring.
 
----
-
 ## 4. Constraints
 - **C-01**: The system must be developed using open-source technologies.  
 - **C-02**: Payment must be processed through a supported external gateway.
-
----
 
 ## 5. Assumptions
 - **A-01**: Buyers have stable internet access.  
