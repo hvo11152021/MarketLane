@@ -1,4 +1,4 @@
-# User Stories – MarketLane E-Commerce Platform
+# User Stories
 
 ## Seller User Stories
 
